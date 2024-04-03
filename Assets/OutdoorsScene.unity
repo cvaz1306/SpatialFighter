@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2157.5093, g: 2259.9937, b: 3279.6836, a: 1}
+  m_IndirectSpecularColor: {r: 2157.0852, g: 2259.6526, b: 3279.6768, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -511,6 +511,8 @@ MonoBehaviour:
   arrowLength: 2.85
   rocketLeft: {fileID: 1596688250}
   rocketRight: {fileID: 1196748855}
+  SpeedBoost: 3
+  AngleLimit: 30
 --- !u!54 &262146348
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1230,7 +1232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649181890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0374, y: -0.0921, z: -0.1295}
+  m_LocalPosition: {x: -0.0374, y: -0.0921, z: -0.305}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3056,7 +3058,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976744951}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0374, y: -0.0921, z: -0.1295}
+  m_LocalPosition: {x: 0.0374, y: -0.0921, z: -0.305}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

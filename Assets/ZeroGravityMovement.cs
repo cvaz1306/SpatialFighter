@@ -14,6 +14,8 @@ public class ZeroGravityMovement : MonoBehaviour
     private Vector3 prevVel;
     public VisualEffect rocketLeft;
     public VisualEffect rocketRight;
+    public float SpeedBoost;
+    public float AngleLimit;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,7 +31,8 @@ public class ZeroGravityMovement : MonoBehaviour
 
         // Calculate movement vector based on input
         Vector3 movement = new Vector3(-moveHorizontal, moveForward, -moveVertical);
-
+        float DiffAngle = Mathf.Acos(Vector3.Dot(movement.normalized, rb.velocity.normalized)) * Mathf.Rad2Deg;
+        Debug.Log(DiffAngle);
         // Normalize the movement vector to maintain consistent speed regardless of direction
         if (movement.magnitude > 1f)
         {
@@ -43,10 +46,12 @@ public class ZeroGravityMovement : MonoBehaviour
                 rocketLeft.SetFloat("flame length", .15f);
             }
         }
-
+        float ms = moveSpeed;
         // Apply translation (movement) to the rigidbody
+        if(DiffAngle<AngleLimit) moveSpeed *= SpeedBoost;
         rb.AddRelativeForce(forward*(movement * moveSpeed));
 
+        moveSpeed = ms;
         // Get input for rotation around the X and Y axes
         float rotateX = Input.GetAxis("Pitch");
         float rotateY = Input.GetAxis("Yaw");
@@ -63,7 +68,7 @@ public class ZeroGravityMovement : MonoBehaviour
         swoosh.volume=ApproachOne(rb.velocity.magnitude);
         prevVel = rb.velocity;
         camera.GetComponent<CameraFollow>().followSpeed = rb.velocity.magnitude+50;
-
+        
     }
     void OnDrawGizmos()
     {

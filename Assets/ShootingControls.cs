@@ -22,7 +22,7 @@ public class ShootingControls : MonoBehaviour
         if(countdown < 1)
         {
             countdown = countdownDefault;
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.E))
             {
                 GameObject i = Instantiate(laserPrefab, leftGun.position, leftGun.rotation);
                 i.GetComponent<laser>().initialVelocity=GetComponent<Rigidbody>().velocity * Time.deltaTime;
